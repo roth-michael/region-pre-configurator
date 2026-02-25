@@ -1,7 +1,7 @@
 # Region Pre-Configurator
 A system-specific module which allows pre-configuration of region behaviors on items which create regions.
 
-The child of the Region Attacher module, which has the only relevant functionality of it in a post-v14 world.
+The child of the Region Attacher module, with the only relevant functionality of it in a post-v14 world.
 
 Currently supported systems are:
 - pf2e
