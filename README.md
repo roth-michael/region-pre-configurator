@@ -1,10 +1,14 @@
-# Region Attacher
-![Latest Release Download Count](https://img.shields.io/github/downloads/roth-michael/Region-Attacher/latest/module.zip?color=2b82fc&label=DOWNLOADS&style=for-the-badge) ![Foundry Core Compatible Version](https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fgithub.com%2Froth-michael%2FRegion-Attacher%2Freleases%2Flatest%2Fdownload%2Fmodule.json&label=Foundry%20Version&query=$.compatibility.verified&colorB=orange&style=for-the-badge) ![Latest Version](https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fgithub.com%2Froth-michael%2FRegion-Attacher%2Freleases%2Flatest%2Fdownload%2Fmodule.json&label=Latest%20Release&prefix=v&query=$.version&colorB=red&style=for-the-badge)
+# Region Pre-Configurator
+A system-specific module which allows pre-configuration of region behaviors on items which create regions.
 
-Allows attaching Scene Regions to tiles.
+The child of the Region Attacher module, which has the only relevant functionality of it in a post-v14 world.
 
-In certain systems (currently dnd5e, pf2e, swade, and dnd4e), allows pre-configuring behaviors on an item which will create a region/template.
+Currently supported systems are:
+- pf2e
+- swade
+- dnd4e
 
+(If you're here to request dnd5e, the system will be adding similar functionality in release 6.0.0).
 
 #### Think this is neat?
 <a href='https://ko-fi.com/T6T8XKCII' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi3.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
