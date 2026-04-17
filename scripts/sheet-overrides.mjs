@@ -26,20 +26,23 @@ function getAttachRegionHtml(document) {
 }
 
 // dnd4e
-function patchDnd4eItemSheet(app, html, { item }) {
+function patchDnd4eItemSheet(app, html) {
   if (!game.user.isGM) return;
+  const item = app.document;
   let targetTypeElem = html.querySelector("select[name='system.rangeType']");
   if (!targetTypeElem) return;
-  if (!Object.keys(CONFIG.DND4E.areaTargetTypes).includes(targetTypeElem.value)) return;
+  if (!item.hasAreaTarget) return;
   let targetElem = targetTypeElem.parentNode.parentNode;
   if (!targetElem) return;
   targetElem.after(getAttachRegionHtml(item));
-  html.querySelector("#configureRegionButton")?.addEventListener("click", () => {openRegionConfig(app.item)});
+  html.querySelector("#configureRegionButton")?.addEventListener("click", () => {openRegionConfig(item)});
 }
 
 // pf2e
-function patchPF2eItemSheet(app, html, { item }) {
+function patchPF2eItemSheet(app, html) {
   if (!game.user.isGM) return;
+  html = html instanceof HTMLElement ? html : html[0];
+  const item = app.document;
   let elementFound = html.querySelector("select[name='system.area.type']");
   let position;
   // For non-spell items with an inline @Template in the description
@@ -58,8 +61,9 @@ function patchPF2eItemSheet(app, html, { item }) {
 }
 
 // swade
-function patchSwadeItemSheet(app, html, { item }) {
+function patchSwadeItemSheet(app, html) {
   if (!game.user.isGM) return;
+  const item = app.document;
   // Check if any of the template types are enabled
   const templateSection = html.querySelector("div[class='templates']");
   const hasTemplate = !!templateSection?.querySelector("input[checked]");

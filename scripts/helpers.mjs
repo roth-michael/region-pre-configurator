@@ -28,7 +28,7 @@ export async function patchFlags(document) {
   if ("region-attacher" in document.flags) {
     await document.update({
       flags: {
-        [MODULE_NAME]: parentDocument.flags["region-attacher"],
+        [MODULE_NAME]: document.flags["region-attacher"],
         "region-attacher": _del
       }
     });
