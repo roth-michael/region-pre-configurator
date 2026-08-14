@@ -7,10 +7,10 @@ export default function registerHooks() {
     const systemId = game.system.id;
     const originPath = systemId === "pf2e" ? "origin.uuid" : "origin";
     const originUuid = region.getFlag(systemId, originPath);
-    const flagDocument = await fromUuid(originUuid);
+    const flagDocument = await fromUuid(originUuid) ?? region.getFlag(systemId, "item");
     if (!flagDocument) return;
     await patchFlags(flagDocument);
-    const behaviors = flagDocument.getFlag(MODULE_NAME, FLAGS.REGION_BEHAVIORS) ?? [];
+    const behaviors = foundry.utils.getProperty(flagDocument, `flags.${MODULE_NAME}.${FLAGS.REGION_BEHAVIORS}`) ?? [];
     await region.createEmbeddedDocuments("RegionBehavior", behaviors);
   });
 
